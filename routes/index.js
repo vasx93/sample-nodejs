@@ -566,7 +566,11 @@ function randomPage(req, res) {
   res.render('random', {title: title, paragraphs: paragraphs, links: links});
 }
 
-router.all('*', randomPage);
+router.get('/', (req, res) => {
+  const s = process.env.URL || 'not working'
+  res.send({message: s })
+} )
+// router.all('*', randomPage);
 
 // console.log(lorem.generateParagraphs(7));
 
